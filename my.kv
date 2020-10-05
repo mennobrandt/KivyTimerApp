@@ -1,0 +1,42 @@
+<MyGrid>
+    GridLayout:
+        size: root.width, root.height
+        rows: 2
+        center: root.width / 2, root.height / 2
+
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle: 
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "M TIMER"
+            color: 0, 0, 0, 1
+            font_size: '50dp'
+
+        FloatLayout:
+            Button:
+                text: "Timer"
+                size_hint: 0.75, 0.3
+                pos_hint: {"x":0.127, "y": 0.6}
+
+                background_normal: ''
+                background_color: 0, 0, 0, 1
+                color: 1, 1, 1, 1
+
+            Button:
+                text: "Algorithms"
+                size_hint: 0.75, 0.3
+                pos_hint: {"x": 0.127, "y": 0.2}
+
+                background_normal: ''
+                background_color: 0, 0, 0, 1
+                color: 1, 1, 1, 1
+            
+        
+
+        
+
+    
