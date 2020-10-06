@@ -1,42 +1,40 @@
 <MyGrid>
     GridLayout:
         size: root.width, root.height
-        rows: 2
+        rows: 3
         center: root.width / 2, root.height / 2
+
+        padding: 40
+        spacing: 30
 
         canvas:
             Color:
-                rgba: 1, 1, 1, 1
+                rgba: 0, 0, 0, 1
             Rectangle: 
                 pos: self.pos
                 size: self.size
-
-        Label:
-            text: "M TIMER"
+        
+        Image:
+            source: "timer_logo.png"
+            size: self.size
+            pos: self.pos
+        
+        Button:
+            text: "timer"
+            size_hint: 0.70, 0.3
+            font_size: '40sp'
+            bold: True
+                
+            background_normal: ''
+            background_color: 1, 1, 1, 1
             color: 0, 0, 0, 1
-            font_size: '50dp'
 
-        FloatLayout:
-            Button:
-                text: "Timer"
-                size_hint: 0.75, 0.3
-                pos_hint: {"x":0.127, "y": 0.6}
+        Button:
+            text: "algorithms"
+            size_hint: 0.70, 0.3
+            font_size: '40sp'
+            bold: True
 
-                background_normal: ''
-                background_color: 0, 0, 0, 1
-                color: 1, 1, 1, 1
-
-            Button:
-                text: "Algorithms"
-                size_hint: 0.75, 0.3
-                pos_hint: {"x": 0.127, "y": 0.2}
-
-                background_normal: ''
-                background_color: 0, 0, 0, 1
-                color: 1, 1, 1, 1
-            
-        
-
-        
-
-    
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            color: 0, 0, 0, 1
