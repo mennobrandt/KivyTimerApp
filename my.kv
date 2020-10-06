@@ -1,9 +1,12 @@
 WindowManager:
-    MainWindow:
-    SecondWindow:
+    HomeWindow:
+    TimerWindow:
+    AlgsWindow:
 
 
-<MainWindow>:
+<HomeWindow>:
+    name: "home"
+
     GridLayout:
         size: root.width, root.height
         rows: 3
@@ -34,6 +37,10 @@ WindowManager:
             background_color: 1, 1, 1, 1
             color: 0, 0, 0, 1
 
+            on_release:
+                app.root.current = "timer"
+                root.manager.transition.direction = "left"
+
         Button:
             text: "algorithms"
             size_hint: 0.70, 0.3
@@ -44,9 +51,72 @@ WindowManager:
             background_color: 1, 1, 1, 1
             color: 0, 0, 0, 1
 
+            on_release:
+                app.root.current = "algs"
+                root.manager.transition.direction = "right"
 
-<SecondWindow>:
-    name: "second"
 
-    Button:
-        text: "Go Back"
+<TimerWindow>:
+    name: "timer"
+
+    GridLayout:
+        size: root.width, root.height
+        cols: 1
+        rows: 3
+        padding: 40
+        spacing: 30
+
+        canvas:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle: 
+                pos: self.pos
+                size: self.size
+        
+        GridLayout:
+            cols: 2
+            spacing: 100
+            Button: 
+                text: "back"
+                font_size: '20sp'
+                bold: True
+                size_hint: 0.70, 0.3
+
+                background_normal: ''
+                background_color: 1, 1, 1, 1
+                color: 0, 0, 0, 1
+
+                on_release:
+                    app.root.current = "home"
+                    root.manager.transition.direction = "right"
+
+            Label:
+                color: 1, 1, 1, 1
+                text: "scramble placeholder (3x3)"
+        
+        Label: 
+            text: "time"
+            font_size: "40sp"
+        
+        Button: 
+            text: "start/stop"
+            background_normal: ''
+            background_color: 1, 1, 1, 1
+            color: 0, 0, 0, 1
+            on_release:
+                root.create_scramble()
+
+
+        
+<AlgsWindow>:
+    name: "algs"
+    
+    GridLayout:
+        cols: 1
+        
+        Button:
+            text: "Back"
+            
+            on_release:
+                app.root.current = "home"
+                root.manager.transition.direction = "left"
