@@ -22,20 +22,15 @@ class TimerWindow(Screen):
         , "R", "R'", "R2", "R2'"]
 
         final_scramble = []
-        
-        line_broken = False
 
         for i in range(5):
             random.shuffle(move_set)
             final_scramble.extend((move_set[0], move_set[1], move_set[2],
             move_set[3], move_set[4], move_set[5]))
-
-            if(len(final_scramble) >= 14 and line_broken == False):
-                line_broken = True
+            if(i == 1):
                 final_scramble.append("\n")
 
-        print(*final_scramble)
-        print(final_scramble)
+        self.scramble = '  '.join([str(elem) for elem in final_scramble]) 
 
 
 

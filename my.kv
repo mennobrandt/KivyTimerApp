@@ -58,7 +58,8 @@ WindowManager:
 
 <TimerWindow>:
     name: "timer"
-
+    on_enter:
+        root.create_scramble()
     GridLayout:
         size: root.width, root.height
         cols: 1
@@ -89,9 +90,11 @@ WindowManager:
                     app.root.current = "home"
                     root.manager.transition.direction = "right"
         
-        Label: 
-            text: "time"
-            font_size: "40sp"
+        FloatLayout:
+            Label: 
+                text: root.scramble
+                font_size: "15sp"
+                pos_hint: {"x": 0.1, "y": 0.7}
         
         Button: 
             text: "start/stop"
