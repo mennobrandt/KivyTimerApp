@@ -60,6 +60,7 @@ WindowManager:
     name: "timer"
     on_enter:
         root.create_scramble()
+
     GridLayout:
         size: root.width, root.height
         cols: 1
@@ -73,28 +74,33 @@ WindowManager:
             Rectangle: 
                 pos: self.pos
                 size: self.size
-        
-        FloatLayout:
-            Button: 
-                text: "back"
-                font_size: '20sp'
-                bold: True
-                size_hint: 0.2, 0.4
-                pos_hint: {"x": 0.02, "y": 0.7}
 
-                background_normal: ''
-                background_color: 1, 1, 1, 1
-                color: 0, 0, 0, 1
+        GridLayout:
+            cols: 2
+            FloatLayout:
+                Button: 
+                    text: "back"
+                    font_size: '20sp'
+                    bold: True
+                    size_hint: 0.2, 0.4
+                    pos_hint: {"x": 0.02, "y": 0.7}
 
-                on_release:
-                    app.root.current = "home"
-                    root.manager.transition.direction = "right"
-        
-        FloatLayout:
+                    background_normal: ''
+                    background_color: 1, 1, 1, 1
+                    color: 0, 0, 0, 1
+
+                    on_release:
+                        app.root.current = "home"
+                        root.manager.transition.direction = "right"
             Label: 
                 text: root.scramble
-                font_size: "15sp"
-                pos_hint: {"x": 0.1, "y": 0.7}
+                text_size: self.size
+                color: 0, 1, 0, 1
+                pos_hint: {"y": 0.7}
+
+        Label:
+            text: "time"
+            font_size: '50sp'
         
         Button: 
             text: "start/stop"
