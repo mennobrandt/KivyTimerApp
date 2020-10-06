@@ -64,7 +64,7 @@ WindowManager:
         cols: 1
         rows: 3
         padding: 40
-        spacing: 30
+        spacing: 100
 
         canvas:
             Color:
@@ -73,14 +73,13 @@ WindowManager:
                 pos: self.pos
                 size: self.size
         
-        GridLayout:
-            cols: 2
-            spacing: 100
+        FloatLayout:
             Button: 
                 text: "back"
                 font_size: '20sp'
                 bold: True
-                size_hint: 0.70, 0.3
+                size_hint: 0.2, 0.4
+                pos_hint: {"x": 0.02, "y": 0.7}
 
                 background_normal: ''
                 background_color: 1, 1, 1, 1
@@ -89,10 +88,6 @@ WindowManager:
                 on_release:
                     app.root.current = "home"
                     root.manager.transition.direction = "right"
-
-            Label:
-                color: 1, 1, 1, 1
-                text: "scramble placeholder (3x3)"
         
         Label: 
             text: "time"
