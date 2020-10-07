@@ -15,7 +15,7 @@ class HomeWindow(Screen):
     pass
 
 
-class ScramblePopup(FloatLayout):
+class ScramblePopup(GridLayout):
     scramble = StringProperty()
     def create_scramble(self):
         move_set = ["F", "F'", "F2", "F2'", "U", "U'", "U2", "U2'", 
@@ -28,8 +28,6 @@ class ScramblePopup(FloatLayout):
             random.shuffle(move_set)
             final_scramble.extend((move_set[0], move_set[1], move_set[2],
             move_set[3], move_set[4], move_set[5]))
-            if(i == 1):
-                final_scramble.append("\n")
 
         self.scramble = '  '.join([str(elem) for elem in final_scramble]) 
 
@@ -38,8 +36,7 @@ class TimerWindow(Screen):
     def show_popup(self):
         show = ScramblePopup()
         
-        popupWindow = Popup(title="Random Scramble", title_align='center', content=show, size_hint=(None, None), size=('350sp', '350sp')) 
-
+        popupWindow = Popup(title="random scramble", title_size="20sp", title_align='center', content=show, size_hint=(None, None), size=(400, 400)) 
         popupWindow.open()
 
 
@@ -50,7 +47,7 @@ class WindowManager(ScreenManager):
     pass
 
 
-kv = Builder.load_file("my.kv")
+kv = Builder.load_file("cubeapp.kv")
 
 
 def randomise():
