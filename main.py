@@ -8,18 +8,15 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen 
 from kivy.properties import StringProperty
 from kivy.uix.popup import Popup
-
 import random
+
 
 class HomeWindow(Screen):
     pass
 
+
 class ScramblePopup(FloatLayout):
-    pass
-
-class TimerWindow(Screen):
     scramble = StringProperty()
-
     def create_scramble(self):
         move_set = ["F", "F'", "F2", "F2'", "U", "U'", "U2", "U2'", 
         "D", "D'", "D2", "D2'", "U", "U'", "U2", "U2'", "L", "L'", "L2", "L2'"
@@ -36,10 +33,12 @@ class TimerWindow(Screen):
 
         self.scramble = '  '.join([str(elem) for elem in final_scramble]) 
 
+
+class TimerWindow(Screen):
     def show_popup(self):
         show = ScramblePopup()
         
-        popupWindow = Popup(content=show, size_hint=(None, None), size=('400sp', '400sp')) 
+        popupWindow = Popup(title="Random Scramble", title_align='center', content=show, size_hint=(None, None), size=('350sp', '350sp')) 
 
         popupWindow.open()
 

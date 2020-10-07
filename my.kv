@@ -56,16 +56,17 @@ WindowManager:
                 root.manager.transition.direction = "right"
 
 <ScramblePopup>:
-    title: "this is a title!!!"
+    background_color: 1, 1, 1, 1
+    Button:
+        text: "new"
+        center_x: 0.5
+        on_release:
+            root.create_scramble()
     Label:
-        text: "test"
+        text: root.scramble
 
 <TimerWindow>:
     name: "timer"
-
-    on_enter:
-        root.create_scramble()
-
     GridLayout:
         size: root.width, root.height
         cols: 1
@@ -81,7 +82,9 @@ WindowManager:
                 size: self.size
 
         GridLayout:
-            spacing: 100
+            row_default_height: '50sp'
+            row_force_default: True
+            spacing: 300
             cols: 2
             Button: 
                 text: "back"
