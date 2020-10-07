@@ -7,10 +7,14 @@ from kivy.uix.widget import Widget # wasd
 from kivy.lang import Builder 
 from kivy.uix.screenmanager import ScreenManager, Screen 
 from kivy.properties import StringProperty
+from kivy.uix.popup import Popup
 
 import random
 
 class HomeWindow(Screen):
+    pass
+
+class ScramblePopup(FloatLayout):
     pass
 
 class TimerWindow(Screen):
@@ -32,6 +36,12 @@ class TimerWindow(Screen):
 
         self.scramble = '  '.join([str(elem) for elem in final_scramble]) 
 
+    def show_popup(self):
+        show = ScramblePopup()
+        
+        popupWindow = Popup(content=show, size_hint=(None, None), size=('400sp', '400sp')) 
+
+        popupWindow.open()
 
 
 class AlgsWindow(Screen):
