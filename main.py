@@ -54,9 +54,6 @@ class WindowManager(ScreenManager):
 kv = Builder.load_file("cubeapp.kv")
 
 
-def randomise():
-    pass
-
 class MyApp(App): # <- Main Class
     def build(self):
         return kv
