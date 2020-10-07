@@ -29,7 +29,7 @@ WindowManager:
         
         Button:
             text: "timer"
-            size_hint: 0.70, 0.3
+            size_hint: 0.8, 0.3
             font_size: '40sp'
             bold: True
                 
@@ -43,7 +43,7 @@ WindowManager:
 
         Button:
             text: "algorithms"
-            size_hint: 0.70, 0.3
+            size_hint: 0.8, 0.3
             font_size: '40sp'
             bold: True
 
@@ -57,39 +57,27 @@ WindowManager:
 
 
 <ScramblePopup>:
-    padding: 40
-    spacing: 25
-    rows: 2
-
-    GridLayout: 
-        spacing: 50
-        cols: 2
-        row_default_height: '100sp'
-        row_force_default: True
-
-        Button:
-            text: "new"
-            size_hint: 0.5, 0.5
-            bold: True
-            background_normal: ''
-            background_color: 1, 1, 1, 1
-            color: 0, 0, 0, 1
-
-            on_release:
-                root.create_scramble()
-
-        Label:
-            text: root.scramble
-            text_size: self.size
-            font_size: '20sp'
+    padding: 25
+    spacing: 30
+    cols: 2
+    row_default_height: '100sp'
+    row_force_default: True
     
-    Button: 
-        text: "back"
+    Button:
+        text: "new"
+        size_hint: 0.5, 0.5
         bold: True
-
         background_normal: ''
         background_color: 1, 1, 1, 1
         color: 0, 0, 0, 1
+
+        on_release:
+            root.create_scramble()
+
+    Label:
+        text: root.scramble
+        text_size: self.size
+        font_size: '15sp'
 
 
 <TimerWindow>:
@@ -109,19 +97,20 @@ WindowManager:
                 size: self.size
 
         GridLayout:
-            row_default_height: '50sp'
+            row_default_height: '60sp'
             row_force_default: True
             spacing: 300
             cols: 2
             Button: 
                 text: "back"
-                font_size: "20sp"
+                font_size: "15sp"
                 bold: True
+                size_hint: 0.7, 1
 
                 background_normal: ''
                 background_color: 1, 1, 1, 1
                 color: 0, 0, 0, 1
-                size_hint: 0.5, 1
+                
 
                 on_release:
                     app.root.current = "home"
@@ -129,15 +118,14 @@ WindowManager:
 
             Button: 
                 text: "scramble"
-                font_size: '20sp'
+                font_size: '15sp'
                 bold: True
-                size_hint: 0.2, 0.4
-                pos_hint: {"x": 0.8, "y": 0.7}
+                size_hint: 0.7, 1
 
                 background_normal: ''
                 background_color: 1, 1, 1, 1
                 color: 0, 0, 0, 1
-                size_hint: 0.5, 1
+                
 
                 on_release:
                     root.show_popup()
@@ -151,8 +139,6 @@ WindowManager:
             background_normal: ''
             background_color: 1, 1, 1, 1
             color: 0, 0, 0, 1
-            on_release:
-                root.create_scramble()
 
 
         
